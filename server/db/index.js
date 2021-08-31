@@ -4,27 +4,36 @@ var mysql = require('mysql');
 // You will need to connect with the user "root", no password,
 // and to the database "chat".
 
+var con = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'chat'
+});
 
-/* ADDED BELOW - Marcos //
 
-module.exports {
+con.connect((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('database connected!');
+  }
+});
 
-var connection = mysql.createConnection({
-    host     : 'localhost', //add our filepath
-    user     : 'student',
-    password : 'student',
-    database : 'chat'
-  });
+module.exports = con;
 
-connection.connect()
 
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  if (err) throw err
+//refactor using sequelize
+// var Sequelize = require('sequelize');
+// //Connecting to a database
+// const db = new Sequelize('chat', 'root', '', {
+//   host: 'localhost',
+//   dialect: 'mysql'
+// });
 
-console.log('The solution is: ', rows[0].solution)
-})
+// var User = db.define('User', {
+//   username: Sequelize.STRING
+// });
 
-connection.end()
-};
+// module.exports = User;
 
-*/

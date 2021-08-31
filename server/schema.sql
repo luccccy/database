@@ -1,29 +1,28 @@
+DROP DATABASE chat;
+
 CREATE DATABASE chat;
 
 USE chat;
 
 CREATE TABLE messages (
     id INT AUTO_INCREMENT,
-    text VARCHAR(120),
+    text_message VARCHAR(120),
     user VARCHAR(20),
-    room INT,  
+    room VARCHAR(20),
     PRIMARY KEY (id)
 );
 
 -- /* Create other tables and define schemas for them here! */
-CREATE TABLE rooms (
-  /* Describe your table here.*/
-  id INT AUTO_INCREMENT,
-    name VARCHAR(120),
-   PRIMARY KEY (id)
-    
-    
-);
+-- CREATE TABLE rooms (
+--   /* Describe your table here.*/
+
+
+-- );
 
 CREATE TABLE user (
   id INT AUTO_INCREMENT,
-    name VARCHAR(20),
-    PRIMARY KEY (id)
+  username VARCHAR(20),
+  PRIMARY KEY (id)
 );
 
 
